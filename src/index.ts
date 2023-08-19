@@ -57,10 +57,10 @@ class GoCompletionItemProvider implements vscode.CompletionItemProvider {
 }
 
 export function activate(context: vscode.ExtensionContext): void {
-  const dotuseStateConfig: vscode.WorkspaceConfiguration =
-    vscode.workspace.getConfiguration("dotuseState");
+  const logWithEmojiConfig: vscode.WorkspaceConfiguration =
+    vscode.workspace.getConfiguration("logWithEmoji");
 
-  const configList: ConfigItem[] | undefined = dotuseStateConfig.get("config");
+  const configList: ConfigItem[] | undefined = logWithEmojiConfig.get("config");
   
   if (!configList) {
     return;
