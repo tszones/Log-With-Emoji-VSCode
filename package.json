@@ -20,6 +20,14 @@
   "categories": [
     "Other"
   ],
+  "activationEvents": [
+    "onLanguage:html",
+    "onLanguage:javascript",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescript",
+    "onLanguage:typescriptreact",
+    "onLanguage:vue"
+  ],
   "main": "./dist/index.js",
   "scripts": {
     "vscode:prepublish": "yarn run package",
