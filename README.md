@@ -1,33 +1,14 @@
-# VSCode Dot UseState Extension
+## Log With Emoji VS Code Extension
 
-The VSCode Dot UseState Extension is a utility that allows you to quickly generate `useState` code snippets for React in Visual Studio Code. It helps you save time by automatically generating the boilerplate code for declaring state variables and their corresponding setter functions.
+ Log With Emoji is a VS Code extension that automatically inserts `console.log("✨variants", variants)` into your code when you type `variants.log`.
 
-## Features
+### Installation
 
-- Provides code snippets for `useState` declarations in React.
-- Supports different types of state variables, including arrays, objects, strings, and default values.
+1. Open VS Code
+2. Open the "Extensions" view (either from the sidebar or by pressing `Ctrl + Shift + X`)
+3. Search for "Variants Log"
+4. Click the "Install" button
 
-## Usage
+### Usage
 
-To use the extension, follow these steps:
-
-1. Open a JavaScript or TypeScript file in Visual Studio Code.
-
-```javascript
-xxx.useState => const [xxx, setXxx] = useState()
-xxx.useStateArray => const [xxx, setXxx] = useState([])
-xxx.useStateObj => const [xxx, setXxx] = useState({})
-xxx.useStateString => const [xxx, setXxx] = useState('')
-```
-
-Replace `xxx` with your desired state variable name.
-
-![img](https://github.com/code-cola-js/Dot-useState-VSCode/blob/main/public/show.gif)
-
-## License
-
-This extension is licensed under the [MIT License](LICENSE).
-
-## Contact
-
-If you have any questions or suggestions regarding the VSCode Dot UseState Extension, feel free to contact me at [codeCola.js@outlook.com].
+Type `variants.log` in your JavaScript or TypeScript file and press Enter. The line `console.log("✨variants", variants)` will be inserted automatically.
