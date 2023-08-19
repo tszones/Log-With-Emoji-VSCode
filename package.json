@@ -1,30 +1,23 @@
 {
-  "name": "dot-usestate",
-  "displayName": "Dot useState",
-  "description": "This extension designed to streamline your development workflow when working with React. This extension automates the process of creating useState hooks, allowing you to quickly generate the boilerplate code for state management in your React components.",
-  "publisher": "sz",
+  "name": "Log with Emoji",
+  "displayName": "Log with Emoji",
+  "description": "Log with Emoji",
+  "publisher": "codeCola.js",
   "version": "1.0.2",
   "keywords": [
-    "setstate",
-    "useState"
+    "console.log",
+    "log",
+    "emoji"
   ],
   "engines": {
     "vscode": "^1.61.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/codeCola-c/Dot-useState-VSCode.git"
+    "url": "https://github.com/code-cola-js/Log-With-Emoji-VSCode.git"
   },
   "categories": [
     "Other"
-  ],
-  "activationEvents": [
-    "onLanguage:html",
-    "onLanguage:javascript",
-    "onLanguage:javascriptreact",
-    "onLanguage:typescript",
-    "onLanguage:typescriptreact",
-    "onLanguage:vue"
   ],
   "main": "./dist/index.js",
   "scripts": {
@@ -55,16 +48,16 @@
   },
   "contributes": {
     "configuration": {
-      "title": "dotuseState",
+      "title": "logWithEmoji",
       "properties": {
-        "dotuseState.config": {
+        "logWithEmoji.config": {
           "type": "array",
-          "description": "Customize how to useState the result.",
+          "description": "log with emoji",
           "default": [
             {
               "trigger": "log",
               "description": "quick log",
-              "format": "useState()"
+              "format": "log with emoji"
             }
           ],
           "items": {
