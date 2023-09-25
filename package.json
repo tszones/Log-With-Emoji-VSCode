@@ -39,7 +39,7 @@
     "watch-tests": "tsc -p -w . --outDir out",
     "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
     "lint": "eslint src --ext ts",
-    "build" : "vsce package"
+    "build": "vsce package"
   },
   "devDependencies": {
     "@types/glob": "^7.1.4",
@@ -68,7 +68,7 @@
             {
               "trigger": "log",
               "description": "quick log",
-              "format": "log with emoji"
+              "format": "console.log"
             }
           ],
           "items": {
