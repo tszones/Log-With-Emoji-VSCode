@@ -1,5 +1,4 @@
 import * as vscode from "vscode";
-import emojiList from "./emojiDataList";
 
 interface ConfigItem {
   trigger: string;
@@ -8,6 +7,7 @@ interface ConfigItem {
   format: string;
   prefix: string;
   suffix: string;
+  emojiList: string[];
 }
 
 class GoCompletionItemProvider implements vscode.CompletionItemProvider {
@@ -81,7 +81,6 @@ export function activate(context: vscode.ExtensionContext): void {
 
   const command = "dot-usestate-replace";
 
-
   const getRandomElementFromArray = (arr:string[]):string => {
   
     const randomIndex:number = Math.floor(Math.random() * arr.length);
@@ -96,6 +95,9 @@ export function activate(context: vscode.ExtensionContext): void {
     config: ConfigItem
   ) => {
     const lineText = editor.document.lineAt(position.line).text;
+
+    const emojiList  = config.emojiList
+
 
     const matchVarReg = new RegExp(`\(\[^\\s\]*\[^\'\"\`\]\).${config.trigger}$`);
 
@@ -133,12 +135,14 @@ export function activate(context: vscode.ExtensionContext): void {
         } else {
           const emojiStr:string = getRandomElementFromArray(emojiList);
 
-          insertVal = `console.log("${emojiStr}${key}", ${key});`;
+          insertVal = `${config.format}(${quote}${emojiStr}${key}${quote}, ${key});`;
         }
       }
 
       if (matchFlag === "str") {
-        insertVal = `${config.format}(${quote}${key}${quote})`;
+        const emojiStr:string = getRandomElementFromArray(emojiList);
+
+        insertVal = `${config.format}(${quote}${emojiStr}${key}${quote})`;
       }
 
       edit.insert(position.with(undefined, index), insertVal);
