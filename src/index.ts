@@ -7,7 +7,6 @@ interface ConfigItem {
   format: string;
   prefix: string;
   suffix: string;
-  emojiList: string[];
 }
 
 class GoCompletionItemProvider implements vscode.CompletionItemProvider {
@@ -95,9 +94,19 @@ export function activate(context: vscode.ExtensionContext): void {
     config: ConfigItem
   ) => {
     const lineText = editor.document.lineAt(position.line).text;
+    const configuration = vscode.workspace.getConfiguration('logWithEmoji');
+    const emojiList = configuration.get('emojiList', [
+      "😀",
+      "🚀",
+      "🌟",
+      "❤️",
+      "👍"
+    ]);
 
-    const emojiList = config.emojiList
+    // 使用 Set 去重
+    const emojiSet = new Set(emojiList);
 
+    const uniqueEmojiList = Array.from(emojiSet);
 
     const matchVarReg = new RegExp(`\(\[^\\s\]*\[^\'\"\`\]\).${config.trigger}$`);
 
@@ -133,14 +142,14 @@ export function activate(context: vscode.ExtensionContext): void {
         if (config.hideName === true) {
           insertVal = `${config.format}(${key})`;
         } else {
-          const emojiStr: string = getRandomElementFromArray(emojiList);
+          const emojiStr: string = getRandomElementFromArray(uniqueEmojiList);
 
           insertVal = `${config.format}(${quote}${emojiStr}${key}${quote}, ${key});`;
         }
       }
 
       if (matchFlag === "str") {
-        const emojiStr: string = getRandomElementFromArray(emojiList);
+        const emojiStr: string = getRandomElementFromArray(uniqueEmojiList);
 
         insertVal = `${config.format}(${quote}${emojiStr}${key}${quote})`;
       }
