@@ -1,23 +1,48 @@
-## Log With Emoji VS Code Extension
+# Log with Emoji - Visual Studio Code Extension
 
- Log With Emoji is a VS Code extension that automatically inserts `console.log("✨variants", variants)` into your code when you type `variants.log`.
+- [中文](./README_CN.md)
 
-### Installation
+## Overview
 
-1. Open VS Code
-2. Open the "Extensions" view (either from the sidebar or by pressing `Ctrl + Shift + X`)
-3. Search for "Variants Log"
-4. Click the "Install" button
+![console.log](public/console.log.gif)
 
-### Usage
+The **Log with Emoji** extension for Visual Studio Code allows you to log messages with fun **random** emojis in your code. It enhances your development experience by adding emojis to your console.log statements or other custom log formats.
 
-Type `variants.log` in your JavaScript or TypeScript file and press Enter. The line `console.log("✨variants", variants)` will be inserted automatically.
+## Features
 
+- **Customizable Emoji List**: You can customize the list of emojis available for logging. Add your favorite emojis to make your logs more expressive.
+
+- **Quick Logging**: Use predefined triggers to quickly log messages. For example, type "log" and select the desired emoji and log format to insert it into your code.
+
+## Getting Started
+
+1. **Installation**: Install the extension from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=codeColajs.log-with-emoji).
+
+2. Emoji List: Tailor the available emojis by modifying the logWithEmoji.emojiList setting in your VS Code settings. You can use any emojis you like.
+
+## Customization
+
+### Emoji List
+
+You can customize the list of emojis available for logging in your settings. The extension provides a default list of emojis, but you can add your own favorites. The extension will automatically remove duplicates when processing the list.
+
+## Example Configuration
 
 ```json
-  "logWithEmoji.config": [
-    {
-      "emojiList": ["😃", "🚀", "🎉"] // You can customize your emoji list here
-    }
-  ]
+"logWithEmoji.emojiList": [
+  "❤️",
+  "🌟",
+  "😃",
+  "🚀",
+  "🎉"
+  // Add your favorite emojis here
+]
 ```
+
+## Contributing
+
+If you have any suggestions, bug reports, or feature requests, please [open an issue on GitHub](https://github.com/code-cola-js/Log-With-Emoji-VSCode/issues). We welcome contributions from the community!
+
+## License
+
+This extension is licensed under the [MIT License](LICENSE).
