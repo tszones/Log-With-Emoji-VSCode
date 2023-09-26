@@ -12,3 +12,12 @@
 ### Usage
 
 Type `variants.log` in your JavaScript or TypeScript file and press Enter. The line `console.log("✨variants", variants)` will be inserted automatically.
+
+
+```json
+  "logWithEmoji.config": [
+    {
+      "emojiList": ["😃", "🚀", "🎉"] // You can customize your emoji list here
+    }
+  ]
+```
