@@ -49,7 +49,7 @@ class GoCompletionItemProvider implements vscode.CompletionItemProvider {
         title: "refactor",
         arguments: [this.position.translate(0, label.length + 1), config],
       };
-      
+
     }
 
     return item;
@@ -61,7 +61,7 @@ export function activate(context: vscode.ExtensionContext): void {
     vscode.workspace.getConfiguration("logWithEmoji");
 
   const configList: ConfigItem[] | undefined = logWithEmojiConfig.get("config");
-  
+
   if (!configList) {
     return;
   }
@@ -81,10 +81,10 @@ export function activate(context: vscode.ExtensionContext): void {
 
   const command = "dot-usestate-replace";
 
-  const getRandomElementFromArray = (arr:string[]):string => {
-  
-    const randomIndex:number = Math.floor(Math.random() * arr.length);
-  
+  const getRandomElementFromArray = (arr: string[]): string => {
+
+    const randomIndex: number = Math.floor(Math.random() * arr.length);
+
     return arr[randomIndex];
   };
 
@@ -96,7 +96,7 @@ export function activate(context: vscode.ExtensionContext): void {
   ) => {
     const lineText = editor.document.lineAt(position.line).text;
 
-    const emojiList  = config.emojiList
+    const emojiList = config.emojiList
 
 
     const matchVarReg = new RegExp(`\(\[^\\s\]*\[^\'\"\`\]\).${config.trigger}$`);
@@ -106,10 +106,10 @@ export function activate(context: vscode.ExtensionContext): void {
     let matchFlag: "var" | "str" = "var";
 
     let text: string | undefined;
-    let key;        
+    let key;
     let quote = "'";
     let insertVal = "";
-    
+
     [text, key] = lineText.match(matchVarReg) || [];
 
     if (!key) {
@@ -133,14 +133,14 @@ export function activate(context: vscode.ExtensionContext): void {
         if (config.hideName === true) {
           insertVal = `${config.format}(${key})`;
         } else {
-          const emojiStr:string = getRandomElementFromArray(emojiList);
+          const emojiStr: string = getRandomElementFromArray(emojiList);
 
           insertVal = `${config.format}(${quote}${emojiStr}${key}${quote}, ${key});`;
         }
       }
 
       if (matchFlag === "str") {
-        const emojiStr:string = getRandomElementFromArray(emojiList);
+        const emojiStr: string = getRandomElementFromArray(emojiList);
 
         insertVal = `${config.format}(${quote}${emojiStr}${key}${quote})`;
       }
